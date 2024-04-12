@@ -39,9 +39,8 @@ def agregar_tareas():
             )
             
             with conexion.cursor(prepared=True) as cursor:
-                # Ejecutar la consulta para insertar la tarea en la base de datos
                 consulta = "INSERT INTO tareas (titulo, descripcion, fecha_vencimiento, completada) VALUES (%s, %s, %s, %s)"
-                valores = (nombre_tarea, descripcion_tarea, fecha_vencimiento, 0)  # 0 representa una tarea no completada
+                valores = (nombre_tarea, descripcion_tarea, fecha_vencimiento, 0)
                 cursor.execute(consulta, valores)
             conexion.commit()
 
